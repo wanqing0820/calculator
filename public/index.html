@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Calculator
+    </title>
+    <!-- CSS property to create interactive 
+		calculator interface -->
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.21.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.21.0/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+  </head>
+
+  <script>
+    /* Creating function in HTML for backspace operation */
+
+    function backspace(calc) {
+      size = calc.display.value.length
+      calc.display.value = calc.display.value.substring(0, size - 1)
+    }
+
+    /* Creating function to calculate factorial of element */
+
+    function calculate(calc) {
+      /* Check if function include ! character then 
+			calculate factorial of number */
+
+      if (calc.display.value.includes('!')) {
+        size = calc.display.value.length
+        n = Number(calc.display.value.substring(0, size - 1))
+        f = 1
+
+        for (i = 2; i <= n; i++) f = f * i
+        calc.display.value = f
+      } else if (calc.display.value.includes('%')) {
+        /* If function include % character then calculate 
+			the % of number */
+        size = calc.display.value.length
+        n = Number(calc.display.value.substring(0, size - 1))
+        calc.display.value = n / 100
+      } else calc.display.value = eval(calc.display.value)
+      /* Otherwise evalute and execute output */
+    }
+
+    /* with reference to online sources */
+  </script>
+
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <form name="calc">
+          <input
+            id="display"
+            class="display"
+            name="display"
+            onkeypress="return event.charCode >= 48 
+            && event.charCode <= 57"
+            type="text"
+          />
+
+          <div class="calculator__keys">
+            <input
+              id="btn-symbol"
+              type="button"
+              value="sin"
+              OnClick="calc.display.value='Math.sin('"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="cos"
+              OnClick="calc.display.value='Math.cos('"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="tan"
+              OnClick="calc.display.value='Math.tan('"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="n!"
+              OnClick="calc.display.value+='!'"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="E"
+              OnClick="calc.display.value+='Math.E'"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="pi"
+              OnClick="calc.display.value+='Math.PI'"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="^"
+              OnClick="calc.display.value+='Math.pow('"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="log"
+              OnClick="calc.display.value='Math.log('"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="sqrt"
+              OnClick="calc.display.value+='Math.sqrt('"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="ln2"
+              OnClick="calc.display.value+='Math.LN2'"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="ln10"
+              OnClick="calc.display.value+='Math.Log10'"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="l2e"
+              OnClick="calc.display.value+='Math.LOG2E'"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="l10e"
+              OnClick="calc.display.value+='Math.log10'"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="exp"
+              OnClick="calc.display.value='Math.exp('"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="."
+              OnClick="calc.display.value+='.'"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value=","
+              OnClick="calc.display.value+=','"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value="("
+              OnClick="calc.display.value+='('"
+            />
+
+            <input
+              id="btn-symbol"
+              type="button"
+              value=")"
+              OnClick="calc.display.value+=')'"
+            />
+
+            <input
+              id="btn-number"
+              type="button"
+              value="1"
+              OnClick="calc.display.value+='1'"
+            />
+
+            <input
+              id="btn-number"
+              type="button"
+              value="2"
+              OnClick="calc.display.value+='2'"
+            />
+
+            <input
+              id="btn-number"
+              type="button"
+              value="3"
+              OnClick="calc.display.value+='3'"
+            />
+
+            <input
+              id="btn-number"
+              type="button"
+              value="4"
+              OnClick="calc.display.value+='4'"
+            />
+
+            <input
+              id="btn-number"
+              type="button"
+              value="5"
+              OnClick="calc.display.value+='5'"
+            />
+
+            <input
+              id="btn-number"
+              type="button"
+              value="6"
+              OnClick="calc.display.value+='6'"
+            />
+
+            <input
+              id="btn-number"
+              type="button"
+              value="7"
+              OnClick="calc.display.value+='7'"
+            />
+
+            <input
+              id="btn-number"
+              type="button"
+              value="8"
+              OnClick="calc.display.value+='8'"
+            />
+
+            <input
+              id="btn-number"
+              type="button"
+              value="9"
+              OnClick="calc.display.value+='9'"
+            />
+
+            <input
+              id="btn-number"
+              type="button"
+              value="0"
+              OnClick="calc.display.value+='0'"
+            />
+
+            <input
+              id="btn-operation"
+              type="button"
+              value="+"
+              OnClick="calc.display.value+='+'"
+            />
+
+            <input
+              id="btn-operation"
+              type="button"
+              value="-"
+              OnClick="calc.display.value='-'"
+            />
+
+            <input
+              id="btn-operation"
+              type="button"
+              value="*"
+              OnClick="calc.display.value+='*'"
+            />
+
+            <input
+              id="btn-operation"
+              type="button"
+              value="/"
+              OnClick="calc.display.value+='/'"
+            />
+
+            <input
+              id="btn-operation"
+              type="button"
+              value="C"
+              OnClick="calc.display.value=''"
+            />
+
+            <input
+              id="btn-operation"
+              type="button"
+              value="<-"
+              OnClick="backspace(this.form)"
+            />
+
+            <input
+              id="btn-operation"
+              type="button"
+              value="="
+              OnClick="calculate(this.form)"
+            />
+
+            <input
+              id="btn-operation"
+              type="button"
+              value="%"
+              OnClick="calc.display.value+='%'"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
